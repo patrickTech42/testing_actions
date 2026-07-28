@@ -32,7 +32,7 @@ jobs:
       - name: Job with single dependency
         run: sleep 10
       - name: Checking runner info
-        shell: push
+        shell: pwsh
         run: get-computerinfo
   job4:
     name: JOB4
