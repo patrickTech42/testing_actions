@@ -1,3 +1,14 @@
 name: my-first-workflow
 # To get a trigger on every push
 on: push
+
+jobs:
+  job1:
+    name: JOB1
+    runs-on: ubuntu-22.04
+    steps:
+      - name: running signle command in job1
+        run: echo "Hi, this is my first github workflow"
+      - name: Checking os release for my github runner
+        run: cat /etc/os-release
+    
