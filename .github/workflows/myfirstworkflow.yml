@@ -23,5 +23,21 @@ jobs:
           echo "Hi, from job 2"
           echo "current time is date"
           sleep 20
+
+  job3:
+    name: JOB3
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job with single dependency
+        run: sleep 10
+  job4:
+    name: JOB4
+    needs: [job1, job2, job3]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job for multple dependencies
+        run: sleep 10
+  
           
     
