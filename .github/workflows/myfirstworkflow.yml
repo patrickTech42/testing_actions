@@ -55,7 +55,7 @@ jobs:
           pwd
           ls -ltr
       - name: download single file
-        uses: actions/download-artifact@v7.0.1
+        uses: actions/download-artifact@v7.0.0
         with: 
           name: single_file
       - name: checking after directory
