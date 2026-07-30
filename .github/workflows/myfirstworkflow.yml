@@ -70,5 +70,4 @@ jobs:
           echo "[INFO] current step is running on ${{ runner.os }}:"
           echo "[INFO] Current JOB ID is ${{ job.check_run_id }}."
     
-        run: echo "[INFO] Application password is ${{ secrets.ADD_PASSOWRD }}"
-
+      
