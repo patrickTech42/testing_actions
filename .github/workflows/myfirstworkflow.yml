@@ -2,9 +2,9 @@ name: my-first-workflow
 # To get a trigger on every push
 on: 
   push:
-    branches: 
-      - dev
-      - 'feature-*'
+    branches:
+      - main
+
   pull_request:
     branches:
       -  main
@@ -50,5 +50,4 @@ jobs:
         run: |
           pwd
           ls -ltr
-      - name: Step for fail
-        run: exit 1
+
