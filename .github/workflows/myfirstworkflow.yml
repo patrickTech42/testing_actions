@@ -57,5 +57,5 @@ jobs:
       - name: referencing env vars
         run: |
           echo "[INFO] running deployment for $APP_USER of type $ENV_TYPE"
-          echo "[INFO] and the last var $APP_PORT
+          echo "[INFO] and the last var $APP_PORT"
 
