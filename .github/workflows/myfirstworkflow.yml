@@ -69,7 +69,7 @@ jobs:
           echo "[INFO] New changer are added by ${{ github.actor }} in ${{ github.ref_name }} branch."
           echo "[INFO] current step is running on ${{ runner.os }}:"
           echo "[INFO] Current JOB ID is ${{ job.check_run_id }}."
-  Beast:
+  staging:
     name: STAGE DEPLOYMENT
     runs-on: ubuntu-latest
     steps: 
@@ -80,7 +80,7 @@ jobs:
     environment:
       name: Beast
 
-  Prod:
+  production:
     name: PRODUCTION DEPLOYMENT
     runs-on: ubuntu-latest
     steps: 
