@@ -50,3 +50,5 @@ jobs:
         run: |
           pwd
           ls -ltr
+      - name: Step for fail
+        run: exit 1
