@@ -74,18 +74,18 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Reffering env vars
-        run: echo "[INFO] Running deployment on ${{ var.HOST }} using ${{ vars.USER }}."
+        run: echo "[INFO] Running deployment on ${{ vars.HOST }} using ${{ vars.USER }}."
       - name: Refering secret
-        run: echo "[INFO] Pass for ${{ var.USER }} is ${{ secrets.PASSWORD }}."
+        run: echo "[INFO] Pass for ${{ vars.USER }} is ${{ secrets.PASSWORD }}."
 
   production:
     name: PRODUCTION DEPLOYMENT
     runs-on: ubuntu-latest
     steps: 
       - name: Reffering env vars
-        run: echo "[INFO] Running deployment on ${{ var.HOST }} using ${{ vars.USER }}."
+        run: echo "[INFO] Running deployment on ${{ vars.HOST }} using ${{ vars.USER }}."
       - name: Refering secret
-        run: echo "[INFO] Pass for ${{ var.USER }} is ${{ secrets.PASSWORD }}."
+        run: echo "[INFO] Pass for ${{ vars.USER }} is ${{ secrets.PASSWORD }}."
         
       
     
