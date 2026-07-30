@@ -58,6 +58,17 @@ jobs:
         run: |
           echo "[INFO] running deployment for $APP_USER of type $ENV_TYPE"
           echo "[INFO] and the last var $APP_PORT"
-      - name: referencing repo secret
+      
+  job3:
+    name: JOB3
+    runs-on: ubuntu-latest
+    steps: 
+      - name: reffering something
+      run: |
+        echo "[INFO] Triggered by ${{ github.event_name }}."
+        echo "[INFO] New changer are added by ${{ github.actor }} in ${{ github.ref_name }} branch."
+        echo "[INFO] current step is running on ${{ runner.os }}:"
+        echo "[INFO] Current JOB ID is ${{ job.check_run_id }}."
+    
         run: echo "[INFO] Application password is ${{ secrets.ADD_PASSOWRD }}"
 
