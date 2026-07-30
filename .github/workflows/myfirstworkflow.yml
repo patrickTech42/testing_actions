@@ -77,6 +77,8 @@ jobs:
         run: echo "[INFO] Running deployment on ${{ vars.HOST }} using ${{ vars.USER }}."
       - name: Refering secret
         run: echo "[INFO] Pass for ${{ vars.USER }} is ${{ secrets.PASSWORD }}."
+    environment:
+      name: Beast
 
   Prod:
     name: PRODUCTION DEPLOYMENT
@@ -86,6 +88,8 @@ jobs:
         run: echo "[INFO] Running deployment on ${{ vars.HOST }} using ${{ vars.USER }}."
       - name: Refering secret
         run: echo "[INFO] Pass for ${{ vars.USER }} is ${{ secrets.PASSWORD }}."
+    environment:
+      name: Prod
         
       
     
