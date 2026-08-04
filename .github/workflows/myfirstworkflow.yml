@@ -2,111 +2,29 @@ name: my-first-workflow
 # To get a trigger on every push
 on: 
   push:
+    branches:
+      -  main
+  pull_request:
+    branches:
+      - main
   
 jobs:
-  job1:
-    name: JOB1
-    runs-on: ubuntu-22.04
-    steps:
-      - name: step 1
-        run: |
-          pwd
-          ls -ltr
-          hostname
-      - name: Step 2     Checkout
-        uses: actions/checkout@v6.1.0
-      - name: Step 3
-        run: |
-          echo `pwd` >> myartifact.txt
-          mkdir artifacts
-          echo `ls -ltr` >> artifacts/list.txt
-          echo `hostname` >> artifacts/hostname.txt
-      - name: Step 4 upload single
-        uses: actions/upload-artifact@v7.0.1
-        with:
-          name: single_file
-          path: ./myartifact.txt
-      - name: Step 5 upload directory
-        uses: actions/upload-artifact@v7.0.1
-        with:
-          name: directory_artifacts
-          path: artifacts/
-      - name: Step 6 upload multiple paths
-        uses: actions/upload-artifact@v7.0.1
-        with:
-          name: multiple_paths
-          path: |
-            ./myartifact.txt
-             artifacts/
-      - name: Step 6 upload multiple paths exclustions
-        uses: actions/upload-artifact@v7.0.1
-        with:
-          name: multiple_paths_minus_one
-          path: |
-            ./myartifact.txt
-             artifacts/  
-             !**/hostname.txt
-  job2:
-    name: JOB2
-    needs: job1
-    runs-on: ubuntu-22.04
-    steps:
-      - name: checking current directory
-        run: |
-          pwd
-          ls -ltr
-      - name: download single file
-        uses: actions/download-artifact@v7.0.0
-        with: 
-          name: single_file
-      - name: checking after directory
-        run: |
-          pwd
-          ls -ltr
-
-  job3:
-    name: JOB3
-    needs: job1
-    runs-on: ubuntu-22.04
-    steps:
-      - name: checking current directory
-        run: |
-          pwd
-          ls -ltr
-      - name: download directory
-        uses: actions/download-artifact@v7.0.0
-        with: 
-          name: directory_artifacts
-      - name: checking after directory
-        run: |
-          pwd
-          ls -ltr
-  job4:
-    name: JOB4
-    needs: job1
-    runs-on: ubuntu-22.04
-    steps:
-      - name: make cust directory
-        run: |
-          mkdir -p single_file
-          mkdir -p download_directory
-      - name: checking current directory
-        run: |
-          pwd
-          ls -ltr
-      - name: download directory
-        uses: actions/download-artifact@v7.0.0
-        with: 
-          name: directory_artifacts
-          path: download_directory/
-      - name: download single file
-        uses: actions/download-artifact@v7.0.0
-        with: 
-          name: single_file
-          path: single_file/
-      - name: checking after directory
-        run: |
-          pwd
-          ls -ltr single_file
-          ls -ltr download_directory
+  unit-tests:
+    name: "Running Unit Test"
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v5.0.0
+        - name: Setup python
+          uses: actions/setup-python@v6.0.0
+          with:
+            python-version: '3.10'
+        - name: Install dependancys
+          run: |
+            python -m pip install -upgrade pip
+            pip install -r requirements.txt
+        - name: Run Unit tests
+          run: pytest -v
+          
+ 
     
